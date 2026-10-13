@@ -2,21 +2,53 @@
   {
     "id": "MSV1-001",
     "title": "Quiet Momentum",
-    "state": "checkout unverified"
+    "state": "checkout unverified",
+    "preview_url": null,
+    "download_url": null,
+    "checkout_url": null,
+    "license_url": null,
+    "media_verified": false,
+    "rights_verified": false,
+    "checkout_verified": false,
+    "fulfillment_verified": false
   },
   {
     "id": "MSV1-002",
     "title": "Late Desk Glow",
-    "state": "checkout unverified"
+    "state": "checkout unverified",
+    "preview_url": null,
+    "download_url": null,
+    "checkout_url": null,
+    "license_url": null,
+    "media_verified": false,
+    "rights_verified": false,
+    "checkout_verified": false,
+    "fulfillment_verified": false
   },
   {
     "id": "MSV1-003",
     "title": "Soft Systems",
-    "state": "checkout unverified"
+    "state": "checkout unverified",
+    "preview_url": null,
+    "download_url": null,
+    "checkout_url": null,
+    "license_url": null,
+    "media_verified": false,
+    "rights_verified": false,
+    "checkout_verified": false,
+    "fulfillment_verified": false
   },
   {
     "id": "SV-20260913-0009",
     "title": "Digital Twin Smart City Infrastructure",
-    "state": "checkout unverified"
+    "state": "checkout unverified",
+    "preview_url": null,
+    "download_url": null,
+    "checkout_url": null,
+    "license_url": null,
+    "media_verified": false,
+    "rights_verified": false,
+    "checkout_verified": false,
+    "fulfillment_verified": false
   }
 ]
