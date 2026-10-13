@@ -1,0 +1,22 @@
+[
+  {
+    "id": "MSV1-001",
+    "title": "Quiet Momentum",
+    "state": "checkout unverified"
+  },
+  {
+    "id": "MSV1-002",
+    "title": "Late Desk Glow",
+    "state": "checkout unverified"
+  },
+  {
+    "id": "MSV1-003",
+    "title": "Soft Systems",
+    "state": "checkout unverified"
+  },
+  {
+    "id": "SV-20260913-0009",
+    "title": "Digital Twin Smart City Infrastructure",
+    "state": "checkout unverified"
+  }
+]
