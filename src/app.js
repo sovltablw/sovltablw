@@ -1,0 +1,1 @@
+fetch('assets/catalog.json').then(r=>r.json()).then(items=>{const g=document.querySelector('#catalog');items.forEach(x=>{const a=document.createElement('article');const h=document.createElement('h2');h.textContent=x.title;const p=document.createElement('small');p.textContent=x.id+' · '+x.state;a.append(h,p);g.append(a)})})
