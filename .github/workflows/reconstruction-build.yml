@@ -1,0 +1,53 @@
+name: SOVLTA Reconstruction Build
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify provenance
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("PROVENANCE.json").read_text())
+          assert p["issue_id"] == "ISS-BA1233B11D5B"
+          assert p["mode"] == "NEW_RECONSTRUCTION"
+          assert p["historical_source_recovered"] is False
+          assert p["netlify_live_imported_as_source"] is False
+          print("PROVENANCE_PASS")
+          PY
+      - name: Build
+        run: python build.py
+      - name: Validate and hash artifact
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,hashlib
+          d=Path("dist")
+          assert (d/"index.html").is_file()
+          assert (d/"assets/catalog.json").is_file()
+          assert isinstance(json.loads((d/"assets/catalog.json").read_text()),list)
+          manifest={}
+          for f in sorted(d.rglob("*")):
+              if f.is_file():
+                  manifest[f.relative_to(d).as_posix()]=hashlib.sha256(f.read_bytes()).hexdigest()
+          assert len(manifest)>=4
+          Path("artifact-manifest.json").write_text(json.dumps(manifest,indent=2)+"\n")
+          print("ARTIFACT_PASS",len(manifest))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sovlta-reconstruction-dist
+          path: |
+            dist/
+            artifact-manifest.json
+          if-no-files-found: error
